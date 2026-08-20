@@ -36,23 +36,26 @@ public class HelloApplication extends Application {
         btnCalcular.setStyle("-fx-background-color: #4FE086; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5px; -fx-cursor: hand;");
 
         btnCalcular.setOnAction(e -> {
-            int salarioBruto = Integer.parseInt(txtSalarioBruto.getText());
-            double Bono = 0;
-            double seguroSocial = 0.07f;
-            if (salarioBruto < 12000) {
-                Bono = salarioBruto * 0.10;
+            try {
+                int salarioBruto = Integer.parseInt(txtSalarioBruto.getText());
+                double Bono = 0;
+                double seguroSocial = 0.07f;
+                if (salarioBruto < 12000) {
+                    Bono = salarioBruto * 0.10;
 
-            } else if (salarioBruto >= 12000 && salarioBruto <= 20000) {
-                Bono = salarioBruto * 0.05;
-            } else if (salarioBruto > 20000) {
-                Bono = salarioBruto * 0.03;
-            }
+                } else if (salarioBruto >= 12000 && salarioBruto <= 20000) {
+                    Bono = salarioBruto * 0.05;
+                } else if (salarioBruto > 20000) {
+                    Bono = salarioBruto * 0.03;
+                }
 
-            double pagoSeguroSocial = salarioBruto*seguroSocial;
-            double totalSalario = Bono + (salarioBruto - pagoSeguroSocial);
+                double pagoSeguroSocial = salarioBruto * seguroSocial;
+                double totalSalario = Bono + (salarioBruto - pagoSeguroSocial);
+
+
 
             lblResultado.setText("Salario Bruto: " + salarioBruto + "\n" + "Bono: " + Bono + "\n" + "Seguro Social: " + pagoSeguroSocial + "\n" + "Total Salario: " + totalSalario);
-
+            } catch (NumberFormatException ex) {}
         });
 
         btnSalir.setOnAction(e -> {
