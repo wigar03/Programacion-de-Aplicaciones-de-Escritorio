@@ -67,7 +67,7 @@ public class HelloApplication extends Application {
         buttons.setPadding(new Insets(15));
         buttons.getChildren().addAll(btnSuma, btnResta, btnMultiplicacion, btnDivision);
 
-        
+
         root.getChildren().addAll(lblTitle,lblNumber1,
                 tfNumber1,lblNumber2, tfNumber2, buttons, lblResultado);
 
