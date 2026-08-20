@@ -7,7 +7,7 @@
     <groupId>org.uam</groupId>
     <artifactId>Ejercicio-1</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>Ejemplo 3</name>
+    <name>Ejercicio 1</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -60,7 +60,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>org.uam.ejemplo3/org.uam.ejemplo3.HelloApplication</mainClass>
+                            <mainClass>org.uam.ejercicio1/org.uam.ejercicio1.HelloApplication</mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
                             <jlinkImageName>app</jlinkImageName>

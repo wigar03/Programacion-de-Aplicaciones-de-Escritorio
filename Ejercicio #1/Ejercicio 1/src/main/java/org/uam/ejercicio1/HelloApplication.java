@@ -1,7 +1,6 @@
-package org.uam.ejemplo3;
+package org.uam.ejercicio1;
 
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -21,6 +20,7 @@ public class HelloApplication extends Application {
         VBox root = new VBox();
         root.setPadding(new Insets(30));
         root.setSpacing(15);
+        root.setStyle("-fx-background-color: #f2eafd;");
 
         Label lblTitle = new Label("Bienvenido!, Ingrese sus datos para calcular su salario");
         Label lblSalarioBruto = new Label("Salario Bruto:");
@@ -33,13 +33,14 @@ public class HelloApplication extends Application {
 
         btnCalcular.setPrefWidth(100);
         btnCalcular.setPrefHeight(35);
-        btnCalcular.setStyle("-fx-background-color: #4FE086; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5px; -fx-cursor: hand;");
+        btnCalcular.setStyle(
+                "-fx-background-color: #4FE086; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5px; -fx-cursor: hand;");
 
         btnCalcular.setOnAction(e -> {
             try {
                 int salarioBruto = Integer.parseInt(txtSalarioBruto.getText());
                 double Bono = 0;
-                double seguroSocial = 0.07f;
+                double seguroSocial = 0.07;
                 if (salarioBruto < 12000) {
                     Bono = salarioBruto * 0.10;
 
@@ -52,10 +53,11 @@ public class HelloApplication extends Application {
                 double pagoSeguroSocial = salarioBruto * seguroSocial;
                 double totalSalario = Bono + (salarioBruto - pagoSeguroSocial);
 
-
-
-            lblResultado.setText("Salario Bruto: " + salarioBruto + "\n" + "Bono: " + Bono + "\n" + "Seguro Social: " + pagoSeguroSocial + "\n" + "Total Salario: " + totalSalario);
-            } catch (NumberFormatException ex) {}
+                lblResultado.setText(String.format(
+                        "Salario Bruto: %d\nBono: %.2f\nSeguro Social: %.2f\nTotal Salario: %.2f",
+                        salarioBruto, Bono, pagoSeguroSocial, totalSalario));
+            } catch (NumberFormatException ex) {
+            }
         });
 
         btnSalir.setOnAction(e -> {
@@ -64,7 +66,8 @@ public class HelloApplication extends Application {
 
         btnSalir.setPrefWidth(100);
         btnSalir.setPrefHeight(35);
-        btnSalir.setStyle("-fx-background-color: #dc3545; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5px; -fx-cursor: hand;");
+        btnSalir.setStyle(
+                "-fx-background-color: #dc3545; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5px; -fx-cursor: hand;");
 
         HBox footerBox = new HBox(btnSalir);
         footerBox.setAlignment(Pos.BOTTOM_RIGHT);

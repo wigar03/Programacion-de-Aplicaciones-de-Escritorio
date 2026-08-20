@@ -1,4 +1,4 @@
-package org.uam.ejemplo3;
+package org.uam.ejercicio1;
 
 import javafx.application.Application;
 
