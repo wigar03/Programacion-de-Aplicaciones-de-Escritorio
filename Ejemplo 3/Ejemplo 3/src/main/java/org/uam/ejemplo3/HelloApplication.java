@@ -26,9 +26,14 @@ public class HelloApplication extends Application {
         Label lblSalarioBruto = new Label("Salario Bruto:");
         TextField txtSalarioBruto = new TextField();
         Button btnCalcular = new Button("Calcular");
+
         Label lblResultado = new Label("Resultado:");
 
         Button btnSalir = new Button("Salir");
+
+        btnCalcular.setPrefWidth(100);
+        btnCalcular.setPrefHeight(35);
+        btnCalcular.setStyle("-fx-background-color: #4FE086; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5px; -fx-cursor: hand;");
 
         btnCalcular.setOnAction(e -> {
             int salarioBruto = Integer.parseInt(txtSalarioBruto.getText());
